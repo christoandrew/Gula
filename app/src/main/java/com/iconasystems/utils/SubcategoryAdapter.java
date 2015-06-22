@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.iconasystems.Constants;
 import com.iconasystems.gula.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,17 +54,22 @@ public class SubcategoryAdapter extends BaseAdapter {
         }
 
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.spinner_item, parent, false);
+            convertView = inflater.inflate(R.layout.sub_cat_grid_item, parent, false);
         }
 
         ViewHolder viewHolder = new ViewHolder();
-        viewHolder.mCatId = (TextView) convertView.findViewById(R.id.cat_id);
-        viewHolder.mCatName = (TextView) convertView.findViewById(R.id.cat_name);
+        viewHolder.mCatId = (TextView) convertView.findViewById(R.id.sub_cat_id);
+        viewHolder.mCatName = (TextView) convertView.findViewById(R.id.sub_cat_name);
+        viewHolder.mImage  = (ImageView) convertView.findViewById(R.id.sub_cat_image);
 
         HashMap<String, String> category;
         category = dataList.get(position);
         String sub_cat_name = category.get(SUB_CAT_NAME);
         String sub_cat_id = category.get(SUB_CAT_ID);
+        String sub_cat_image = category.get(Constants.NameConstants.TAG_SUB_CAT_IMAGE);
+        String image_url = Constants.UrlConstants.url_sub_cat_images_dir+"/"+sub_cat_image;
+
+        ImageLoader.getInstance().displayImage(image_url, viewHolder.mImage);
 
         viewHolder.mCatId.setText(sub_cat_id);
         viewHolder.mCatName.setText(sub_cat_name);
@@ -72,6 +80,7 @@ public class SubcategoryAdapter extends BaseAdapter {
     static class ViewHolder {
         public TextView mCatName;
         public TextView mCatId;
+        public ImageView mImage;
 
     }
 }

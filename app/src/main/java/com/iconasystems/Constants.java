@@ -46,6 +46,7 @@ public class Constants {
         public static final String FULL_NAME = "fullname";
         //User profile picture
         public static final String PROFILE_PHOTO = "profile_photo";
+        public static final String TAG_SUB_CAT_IMAGE = "sub_cat_image";
     }
 
     public static class UrlConstants {
@@ -63,6 +64,7 @@ public class Constants {
         public static final String url_shop_images = "http://gula.baala-online.netii.net/images/shops";
         public static final String url_get_my_shops = "http://gula.baala-online.netii.net/get_my_shops.php";
         public static final String url_user_images = "http://gula.baala-online.netii.net/users";
+        public static final String url_sub_cat_images_dir = "http://gula.baala-online.netii.net/images/subcategory";
         public static String url_get_by_sub_category = "http://gula.baala-online.netii.net/get_items_by_category.php";
     }
 
