@@ -11,15 +11,10 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.support.v7.recyclerview">
-
-    <uses-sdk android:minSdkVersion="7" />
+--><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="android.support.v7.recyclerview">
+    <uses-sdk android:minSdkVersion="7"/>
     <!-- Until test manifest can be customized, we need this definition here. issue id: 57819 -->
     <application>
-        <activity
-            android:name="android.support.v7.widget.TestActivity"
-            android:label="RecyclerViewTestActivity" />
+        <activity android:label="RecyclerViewTestActivity" android:name="android.support.v7.widget.TestActivity"/>
     </application>
 </manifest>

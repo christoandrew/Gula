@@ -90,6 +90,8 @@ public class CreateShopActivity extends ActionBarActivity {
         mLocation = (EditText) findViewById(R.id.add_shop_location);
         mCreateShop = (Button) findViewById(R.id.create_shop);
 
+        // This is a sample comment
+
         mCreateShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

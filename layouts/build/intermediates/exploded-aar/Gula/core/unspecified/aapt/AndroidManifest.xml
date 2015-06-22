@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
    Copyright (C) 2012 Lucas Rocha
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +17,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.lucasr.twowayview"
     android:versionCode="1"
-    android:versionName="Alpha 1">
+    android:versionName="Alpha 1" >
 
     <uses-sdk
         android:minSdkVersion="10"
