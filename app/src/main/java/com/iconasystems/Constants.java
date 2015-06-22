@@ -28,6 +28,7 @@ public class Constants {
         public static final String TAG_ITEM_PRICE = "item_price";
         public static final String TAG_DATE_ADDED = "date_added";
         public static final String TAG_USER_ID = "user_id";
+        public static final String INDEX = "ArrayListIndex";
 
         public static final String TAG_LOCATION = "location";
         public static final String TAG_EMAIL = "email";

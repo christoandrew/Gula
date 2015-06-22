@@ -43,8 +43,9 @@ public class CategoryFragment extends Fragment {
     private Button getItems;
     private JSONParser jsonParser;
     private ProgressBar mProgress;
-    private ArrayList<HashMap<String, String>> dataList;
+    public static ArrayList<HashMap<String, String>> dataList = new ArrayList<>();
     private String sub_cat_id;
+
 
     public CategoryFragment() {
     }
@@ -63,7 +64,7 @@ public class CategoryFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         jsonParser = new JSONParser(getActivity());
-        dataList = new ArrayList<>();
+        //dataList = new ArrayList<>();
 
         new LoadCategory().execute();
 
@@ -73,6 +74,7 @@ public class CategoryFragment extends Fragment {
                 String cat_id = ((TextView) view.findViewById(R.id.cat_id)).getText().toString();
                 Intent openSubcat = new Intent(getActivity(), SubcategoryActivity.class);
                 openSubcat.putExtra(Constants.NameConstants.TAG_CAT_ID, cat_id);
+                openSubcat.putExtra(Constants.NameConstants.INDEX,position);
                 startActivity(openSubcat);
             }
         });

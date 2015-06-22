@@ -10,8 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iconasystems.Constants;
 import com.iconasystems.utils.JSONParser;
@@ -33,6 +35,10 @@ public class SubcategoryActivity extends BaseActivity {
     private Toolbar toolbar;
     private String cat_id;
 
+    private String[] categories = {
+            "clothings","hardware","wallets","shoes","groceries","fast foods","hand bags","watches"
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +53,49 @@ public class SubcategoryActivity extends BaseActivity {
         drawer.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
-        cat_id = bundle.getString(Constants.NameConstants.TAG_CAT_ID);
-        new LoadSubcategories().execute();
+        int position = bundle.getInt(Constants.NameConstants.INDEX);
+
+        //cat_id = bundle.getString(Constants.NameConstants.TAG_CAT_ID);
+
+
+
+        String[] catNames = new String[CategoryFragment.dataList.size()];
+
+        for(int i=0;i<catNames.length;i++){
+            catNames[i] = CategoryFragment.dataList.get(i).get(Constants.NameConstants.TAG_CAT_NAME);
+        }
+
+
+        Log.e("CONTENTS IN DATAlIST",CategoryFragment.dataList.toString());
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, catNames);
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setNavigationMode(android.support.v7.app.ActionBar.NAVIGATION_MODE_LIST);
+
+        /** Defining Navigation listener */
+
+        android.support.v7.app.ActionBar.OnNavigationListener mOnNavigationListener = new android.support.v7.app.ActionBar.OnNavigationListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+
+                cat_id = CategoryFragment.dataList.get(itemPosition).get(Constants.NameConstants.TAG_CAT_ID);
+
+               // Toast.makeText(getBaseContext(),"item clicked: "+itemPosition,Toast.LENGTH_SHORT).show();
+                new LoadSubcategories(cat_id).execute();
+
+                return true;
+            }
+        };
+
+        /** Setting dropdown items and item navigation listener for the actionbar */
+        actionBar.setListNavigationCallbacks(adapter, mOnNavigationListener);
+
+        actionBar.setSelectedNavigationItem(position);
+
+
     }
 
     @Override
@@ -90,6 +137,12 @@ public class SubcategoryActivity extends BaseActivity {
         private String TAG_SUB_CATEGORIES = "subcategories";
         private String TAG_SUCCESS = "success";
 
+        private String mcat_id;
+
+        public LoadSubcategories(String catId){
+            this.mcat_id = catId;
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -105,7 +158,7 @@ public class SubcategoryActivity extends BaseActivity {
         protected View doInBackground(Integer... args) {
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("cat_id", cat_id));
+            params.add(new BasicNameValuePair("cat_id", mcat_id));
             // getting JSON string from URL
             JSONObject json = jParser.makeHttpRequest(url_get_sub_categories,
                     "GET", params);
