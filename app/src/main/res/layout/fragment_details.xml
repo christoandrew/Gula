@@ -1,0 +1,197 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="800dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@android:color/white"
+
+        tools:context="com.iconasystems.gula.DetailsFragment">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="san-serif-medium"
+                android:text="Indigo suit"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/product_title"
+                android:layout_alignStart="@+id/product_title"
+                android:layout_below="@+id/product_title"
+                android:text="VH apparel"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignEnd="@+id/purchase_button"
+                android:layout_alignLeft="@+id/shop_name"
+                android:layout_alignRight="@+id/purchase_button"
+                android:layout_alignStart="@+id/shop_name"
+                android:layout_below="@+id/shop_name"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:text="USHs: 25,000"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/purchase_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/button"
+                android:paddingBottom="3dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="PURCHASE"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/extras"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="REVIEWS"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="BUYERS"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+        <!--   Put A ListView Here  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/extras"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/item_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shoe" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/details_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item_photo"
+                android:layout_margin="16dp"
+                android:text="Details"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/color_primary_dark" />
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/details_label"
+                android:layout_alignStart="@+id/details_label"
+                android:layout_below="@+id/details_label"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="- 60% Wool/39% Polyester/1% Spandex" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray">
+
+            </View>
+
+            <TextView
+                android:id="@+id/interested_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:text="You may also be interested in"
+                android:textColor="@color/color_primary_dark" />
+
+            <org.lucasr.twowayview.widget.TwoWayView
+                android:id="@+id/interested_strip"
+                style="@style/StyleView"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                app:twowayview_layoutManager="ListLayoutManager">
+
+            </org.lucasr.twowayview.widget.TwoWayView>
+
+            <Button
+                android:id="@+id/check_shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:background="@drawable/button"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="More in this shop"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

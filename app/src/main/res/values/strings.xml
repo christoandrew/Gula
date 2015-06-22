@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Gula</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_details">DetailsActivity</string>
+
+    <!-- Base Staggered -->
+    <string name="carddemo_extras_title_base_stag1">Lorem ipsum dolor sit amet.</string>
+    <string name="carddemo_extras_title_base_stag2">Lorem ipsum dolor sit amet, consectetur adipisici elit</string>
+    <string name="carddemo_extras_title_base_stag3">Lorem ipsum </string>
+    <string name="carddemo_extras_title_base_stag4">unde omnis iste natus error sit voluptatem accusantium </string>
+    <string name="carddemo_extras_title_base_stag5"> Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
+    <string name="carddemo_extras_title_base_stag6">Loremnim </string>
+
+    <string name="done">Done</string>
+    <string name="discard">Discard</string>
+
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_actionbar">ActionbarActivity</string>
+    <string name="title_activity_nav">NavActivity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string name="title_activity_profile">My Profile</string>
+    <string name="title_activity_register">Register Account</string>
+    <string name="title_activity_reviews">ReviewsActivity</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="title_activity_shop">Shop</string>
+    <string name="title_activity_category">Browse Category</string>
+    <string name="title_activity_item">Gula</string>
+    <string name="title_activity_home">Gula</string>
+    <string name="title_activity_subcategory">Browse Subcategory</string>
+    <string name="title_activity_create_shop">Create Shop</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_add_item">Add Shop Item</string>
+    <string name="title_activity_about">About Us</string>
+    <string name="title_activity_my_shops">My Shops</string>
+</resources>

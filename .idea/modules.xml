@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Gula.iml" filepath="$PROJECT_DIR$/Gula.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/etsy-staggered-view/etsy-staggered-view.iml" filepath="$PROJECT_DIR$/etsy-staggered-view/etsy-staggered-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layouts/layouts.iml" filepath="$PROJECT_DIR$/layouts/layouts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-core/library-core.iml" filepath="$PROJECT_DIR$/library-core/library-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-recyclerview/library-recyclerview.iml" filepath="$PROJECT_DIR$/library-recyclerview/library-recyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/navigation-drawer/navigation-drawer.iml" filepath="$PROJECT_DIR$/navigation-drawer/navigation-drawer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/view-page-indicator/view-page-indicator.iml" filepath="$PROJECT_DIR$/view-page-indicator/view-page-indicator.iml" />
+    </modules>
+  </component>
+</project>

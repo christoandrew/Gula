@@ -1,0 +1,1 @@
+include ':app', ':navigation-drawer', ':etsy-staggered-view', ':library-core', ':library-recyclerview', ':core', ':view-page-indicator', ':layouts'

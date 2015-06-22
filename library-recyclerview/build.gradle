@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionName "1.0"
+
+    }
+
+    // This is important, it will run lint checks but won't abort build
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    // Cards Library
+    compile project(':library-core')
+
+    //Annotation
+    compile 'com.android.support:support-annotations:21.0.0'
+    //Recycler View
+    compile 'com.android.support:recyclerview-v7:21.0.0'
+}
+
+// Used to update in Maven
+//apply from: '../maven_push.gradle'

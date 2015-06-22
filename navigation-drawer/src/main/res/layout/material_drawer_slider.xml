@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slider_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:layout_marginEnd="@dimen/material_drawer_margin"
+    android:layout_marginRight="@dimen/material_drawer_margin"
+    android:elevation="8dp"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/shadow_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tool_bar_top_padding"
+        android:layout_alignParentTop="true"
+        android:background="#59000000" />
+</RelativeLayout>
