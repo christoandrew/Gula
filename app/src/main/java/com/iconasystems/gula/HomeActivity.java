@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         session = new SessionManager(this);
 
         if (session.checkLogin()) {
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+            Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
             startActivity(intent);
             finish();
         }

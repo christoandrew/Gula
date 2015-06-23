@@ -101,6 +101,8 @@ public class CategoryFragment extends Fragment {
                 int success = result.getInt(Constants.NameConstants.TAG_SUCCESS);
                 if (success == 1) {
                     JSONArray categories = result.getJSONArray(Constants.NameConstants.TAG_CATEGORIES);
+
+                    dataList.clear();
                     for (int i = 0; i < categories.length(); i++) {
                         JSONObject categoryObj = categories.getJSONObject(i);
                         cat_name = categoryObj.getString(Constants.NameConstants.TAG_CAT_NAME);

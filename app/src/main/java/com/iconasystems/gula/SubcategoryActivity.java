@@ -35,10 +35,6 @@ public class SubcategoryActivity extends BaseActivity {
     private Toolbar toolbar;
     private String cat_id;
 
-    private String[] categories = {
-            "clothings","hardware","wallets","shoes","groceries","fast foods","hand bags","watches"
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

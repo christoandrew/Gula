@@ -33,7 +33,7 @@ public class ItemFragment extends Fragment {
     private StaggeredGridView gridView;
     private ProgressBar mProgressBar;
     //private ItemsAdapter mAdapter;
-    private ArrayList<HashMap<String, String>> mDataList;
+    public static ArrayList<HashMap<String, String>> mItemsdataList = new ArrayList<>();
     private JSONParser jsonParser;
     private String sub_cat_id;
     private boolean mHasRequestedMore;
@@ -58,14 +58,16 @@ public class ItemFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Bundle bundle = getActivity().getIntent().getExtras();
         //sub_cat_id = bundle.getString(Constants.NameConstants.TAG_SUB_CAT_ID);
-        mDataList = new ArrayList<>();
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 String item_id = ((TextView) view.findViewById(R.id.item_id)).getText().toString();
                 Intent openDetails = new Intent(getActivity(), DetailsActivity.class);
                 openDetails.putExtra(Constants.NameConstants.TAG_ITEM_ID, item_id);
+                openDetails.putExtra(Constants.NameConstants.INDEX,position);
                 startActivity(openDetails);
+
             }
         });
         jsonParser = new JSONParser(getActivity());
@@ -103,19 +105,22 @@ public class ItemFragment extends Fragment {
                 if (success == 1) {
                     JSONArray items = result.getJSONArray(Constants.NameConstants.TAG_ITEMS);
 
+                    mItemsdataList.clear();
+
                     for (int i = 0; i < items.length(); i++) {
                         final JSONObject item = items.getJSONObject(i);
-                        getActivity().runOnUiThread(new Runnable() {
+                        /*getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 Toast.makeText(getActivity(), item.toString(), Toast.LENGTH_LONG).show();
                             }
-                        });
+                        });*/
                         item_name = item.getString(Constants.NameConstants.TAG_ITEM_NAME);
                         description = item.getString(Constants.NameConstants.TAG_DESCRIPTION);
                         image = item.getString(Constants.NameConstants.TAG_ITEM_IMAGE);
                         item_id = item.getString(Constants.NameConstants.TAG_ITEM_ID);
                         shop_id = item.getString(Constants.NameConstants.TAG_SHOP);
+                        price = item.getString(Constants.NameConstants.TAG_PRICE);
 
                         HashMap<String, String> map = new HashMap<>();
 
@@ -124,14 +129,17 @@ public class ItemFragment extends Fragment {
                         map.put(Constants.NameConstants.TAG_ITEM_NAME, item_name);
                         map.put(Constants.NameConstants.TAG_ITEM_IMAGE, image);
 
-                        mDataList.add(map);
+                        map.put(Constants.NameConstants.TAG_ITEM_PRICE, price);
+                        map.put(Constants.NameConstants.TAG_ITEM_STATUS,"0");
+
+                        mItemsdataList.add(map);
                     }
 
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return mDataList;
+            return mItemsdataList;
         }
 
         @Override

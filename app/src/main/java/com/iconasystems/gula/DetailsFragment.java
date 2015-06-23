@@ -1,11 +1,15 @@
 package com.iconasystems.gula;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +27,7 @@ import org.lucasr.twowayview.widget.TwoWayView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -37,7 +42,9 @@ public class DetailsFragment extends Fragment {
     private TextView mDescription;
     private TextView mShopName;
     private ImageView mPhoto;
+    private Button mPurchaseButton;
     private JSONParser jsonParser;
+    public static ArrayList<HashMap<String, String>> mCartdataList = new ArrayList<>();
 
     public DetailsFragment() {
     }
@@ -52,6 +59,7 @@ public class DetailsFragment extends Fragment {
         mDescription = (TextView) rootView.findViewById(R.id.product_description);
         mShopName = (TextView) rootView.findViewById(R.id.shop_name);
         mPhoto = (ImageView) rootView.findViewById(R.id.item_photo);
+        mPurchaseButton = (Button) rootView.findViewById(R.id.purchase_button);
 
         return rootView;
     }
@@ -63,9 +71,39 @@ public class DetailsFragment extends Fragment {
         mInterested.setAdapter(new InterestedAdapter(getActivity()));
 
         Bundle bundle = getActivity().getIntent().getExtras();
-        item_id = bundle.getString(Constants.NameConstants.TAG_ITEM_ID);
+        //item_id = bundle.getString(Constants.NameConstants.TAG_ITEM_ID);
+        final int position =  bundle.getInt(Constants.NameConstants.INDEX);
+        Log.d("ITEM POSITION","item position:"+position);
+
+
+        item_id = ItemFragment.mItemsdataList.get(position).get(Constants.NameConstants.TAG_ITEM_ID);
+
+       mPurchaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mCartdataList.add(ItemFragment.mItemsdataList.get(position));
+                Intent cartActivity = new Intent(getActivity(),AppCart.class);
+                startActivity(cartActivity);
+                getActivity().finish();
+            }
+        });
+
+
+
+        // Disable the add to cart button if the item is already in the cart
+        if (mCartdataList.contains(ItemFragment.mItemsdataList.get(position))) {
+            mPurchaseButton.setEnabled(false);
+            mPurchaseButton.setText("Item in Cart");
+            mPurchaseButton.setTextColor(Color.parseColor("#FFFFFF"));
+        }
+
 
         new LoadDetails().execute();
+
+
+
+
     }
 
     class LoadDetails extends AsyncTask<String, String, String> {
